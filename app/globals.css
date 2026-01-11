@@ -305,6 +305,172 @@ a {
   object-fit: contain;
 }
 
+/* Responsive container */
+.container {
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto;
+}
+
+/* Consistent section spacing */
+.section {
+  padding: clamp(24px, 4vw, 56px) 0;
+}
+
+/* Responsive headings */
+.h1 {
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.p {
+  font-size: clamp(14px, 1.8vw, 16px);
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+/* Cards that behave well on all screens */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.08);
+  padding: clamp(16px, 2.6vw, 28px);
+}
+
+/* Grid that auto-fits: 1 column on mobile, more on desktop */
+.autoGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+
+@media (max-width: 720px) {
+  .navLinks,
+  .navSide {
+    gap: 8px;
+  }
+
+  .navLink {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  /* optional: hide less important link(s) on very small screens */
+  /* .navLink[href="/about"] { display: none; } */
+}
+
+
+/* Header layout helpers */
+.navLeft {
+  justify-content: flex-start;
+}
+.navRight {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Hamburger button */
+.menuBtn {
+  display: none; /* only on mobile */
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 140ms ease, transform 140ms ease, border-color 140ms ease;
+}
+
+.menuBtn:hover {
+  background: rgba(45, 116, 214, 0.06);
+  border-color: rgba(45, 116, 214, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Simple hamburger icon */
+.menuIcon {
+  width: 18px;
+  height: 2px;
+  background: var(--blue-main);
+  position: relative;
+  display: block;
+}
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--blue-main);
+}
+.menuIcon::before {
+  top: -6px;
+}
+.menuIcon::after {
+  top: 6px;
+}
+
+/* Mobile menu dropdown */
+.mobileMenu {
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.mobileMenuInner {
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto;
+  padding: 12px 0 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.mobileLink {
+  display: block;
+  padding: 12px 12px;
+  border-radius: 12px;
+  color: var(--blue-main);
+  font-weight: 700;
+  transition: background 140ms ease, transform 140ms ease, color 140ms ease;
+}
+
+.mobileLink:hover {
+  background: rgba(45, 116, 214, 0.08);
+  color: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.mobileLang {
+  margin-top: 6px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Show/hide rules */
+.langDesktop {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  /* hide left links on mobile */
+  .navLeft {
+    display: none;
+  }
+
+  /* hide desktop language switcher */
+  .langDesktop {
+    display: none;
+  }
+
+  /* show hamburger */
+  .menuBtn {
+    display: inline-flex;
+  }
+}
 
 
 /* Mobile */
