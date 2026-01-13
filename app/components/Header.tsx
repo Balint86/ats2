@@ -12,40 +12,38 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close menu when route changes
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header className="header">
-      <nav className="nav centeredNav">
-        {/* Left links (desktop) */}
-        <div className="navSide navLeft">
-          <Link className="navLink" href="/about">
+      <nav className="nav navFull" aria-label="Primary navigation">
+        {/* Left (desktop links) */}
+        <div className="navLeftArea">
+          <Link className="mobileLink" href="/szolgaltatasok">
+              {t("services")}
+            </Link>
+          <Link className="navLink" href="/rolunk">
             {t("about")}
           </Link>
-          <Link className="navLink" href="/contact">
+          <Link className="navLink" href="/kapcsolat">
             {t("contact")}
           </Link>
         </div>
 
-        {/* Center logo */}
-        <Link href="/" className="brand centerBrand" aria-label="ATS-mobile home">
-          <span className="logoWrap">
-            <Image
-              src="/logo.svg"
-              alt="ATS-mobile logo"
-              width={120}
-              height={70}
-              className="logo"
-              priority
-            />
-          </span>
+        {/* Center (ALWAYS centered in window) */}
+        <Link href="/" className="navCenterLogo" aria-label="ATS-mobile home">
+          <Image
+            src="/logo.svg"
+            alt="ATS-mobile logo"
+            width={140}
+            height={70}
+            className="logo"
+            priority
+          />
         </Link>
 
-        {/* Right side (desktop language + mobile menu button) */}
-        <div className="navSide navRight">
+        {/* Right (ALWAYS pinned right) */}
+        <div className="navRightArea">
           <div className="langDesktop">
             <LanguageSwitcher />
           </div>
@@ -66,13 +64,15 @@ export default function Header() {
       {open && (
         <div className="mobileMenu" role="dialog" aria-label="Mobile menu">
           <div className="mobileMenuInner">
-            <Link className="mobileLink" href="/about">
+            <Link className="mobileLink" href="/szolgaltatasok">
+              {t("services")}
+            </Link>
+            <Link className="mobileLink" href="/rolunk">
               {t("about")}
             </Link>
-            <Link className="mobileLink" href="/contact">
+            <Link className="mobileLink" href="/kapcsolat">
               {t("contact")}
             </Link>
-
             <div className="mobileLang">
               <LanguageSwitcher />
             </div>

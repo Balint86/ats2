@@ -9,6 +9,7 @@ type Dict = Record<string, { en: string; hu: string }>;
 const dict = {
   // Nav / common
   home: { en: "Home", hu: "Kezdőlap" },
+  services: { en: "Services", hu: "Szolgáltatások" },
   about: { en: "About", hu: "Rólunk" },
   contact: { en: "Contact", hu: "Kapcsolat" },
   tagline: { en: "Mobile solutions made simple", hu: "Mobil megoldások egyszerűen" },
@@ -46,7 +47,7 @@ const LanguageContext = createContext<{
 } | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("hu");
 
   useEffect(() => {
     const saved = window.localStorage.getItem("ats_lang") as Lang | null;

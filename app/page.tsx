@@ -8,16 +8,17 @@ export default function Home() {
 
   return (
     <section className="homeHero">
-      <div className="svgCenter" aria-label="Homepage graphic">
+      <div className="fullBleed">
         <Image
           src="/hero.svg"
-          alt="ATS-mobile graphic"
-          width={1200}
-          height={1200}
-          className="heroSvg"
-          priority
+          alt="ATS-mobile"
+         width={1920}
+          height={800}
+          style={{ width: "100%", height: "auto" }}
+         priority
         />
       </div>
+
       
       <div className="homeText">
         <h1 className="homeTitle">{t("homeTitle")}</h1>
