@@ -1,26 +1,19 @@
+"use client";
+
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "../components/LanguageProvider"; 
 
 export default function ServicesPage() {
+
+  const { t } = useLanguage();
+
   return (
     <section className="servicesSection">
-      <h1 className="servicesTitle">Szolgáltatások</h1>
+      <h1 className="servicesTitle">{t("szolgaltatasTitle")}</h1>
 
       <div className="servicesGrid">
-        {/* Megújuló */}
-        <Link href="/szolgaltatasok/megujulo" className="serviceCard">
-          <Image
-            src="/megujulo.svg"
-            alt="Megujulo"
-            width={600}
-            height={400}
-            className="serviceImage"
-          />
-          <h2>Megújuló</h2>
-          <p>
-            Megújuló megoldások.
-          </p>
-        </Link>
 
         {/* Távközlés */}
         <Link href="/szolgaltatasok/tavkozles" className="serviceCard">
@@ -31,11 +24,27 @@ export default function ServicesPage() {
             height={400}
             className="serviceImage"
           />
-          <h2>Távközlés</h2>
+          <h2>{t("tavkozlesTitle")}</h2>
           <p>
-            Távközlési megoldások.
+            {t("tavkozlesText")}
           </p>
         </Link>
+
+        {/* Megújuló */}
+        <Link href="/szolgaltatasok/megujulo" className="serviceCard">
+          <Image
+            src="/megujulo.svg"
+            alt="Megujulo"
+            width={600}
+            height={400}
+            className="serviceImage"
+          />
+          <h2>{t("megujuloTitle")}</h2>
+          <p>
+            {t("megujuloText")}
+          </p>
+        </Link>
+
       </div>
     </section>
   );

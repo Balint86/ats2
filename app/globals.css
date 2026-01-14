@@ -395,6 +395,84 @@ a {
 }
 
 
+/* ---------- */
+/* Overlay Card */
+/* ---------- */
+
+.overlayGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.overlayCard {
+  position: relative;
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.overlayCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
+}
+
+.overlayImg {
+  width: 100%;
+  height: 320px;           /* card image height */
+  object-fit: cover;
+  display: block;
+  transition: transform 220ms ease;
+}
+
+.overlayCard:hover .overlayImg {
+  transform: scale(1.03);
+}
+
+/* Gradient shade under text */
+.overlayShade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 16px 16px 18px;
+  color: #fff;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.overlayTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.overlayText {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0.92;
+}
+
+/* smaller height on small screens */
+@media (max-width: 720px) {
+  .overlayImg {
+    height: 260px;
+  }
+}
+
+
 /* -------------------- */
 /* RESPONSIVE RULES     */
 /* -------------------- */

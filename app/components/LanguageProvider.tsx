@@ -36,7 +36,34 @@ const dict = {
   },
   emailLabel: { en: "Email", hu: "Email" },
 
-  // Footer
+  // Szolgáltatások
+  szolgaltatasTitle: { en: "Services", hu: "Szolgáltatások"},
+
+  // Megújuló
+  megujuloTitle: { en: "Renewable", hu: "Megújuló"},
+  megujuloText: { en: "Here come the informations about renewable.", hu: "Ide jönnek az információk a megújulóról."},
+  megujuloLong: { en: "Here comes the long description for renewal.", hu: "Ide jön a hosszabb leírása a megújulónak."},
+
+  // Távközlés
+  tavkozlesTitle: { en: "Telecommunication", hu: "Távközlés"},
+  tavkozlesText: { en: "Here come the informations about telecom.", hu: "Ide jönnek az információk a távközlésről."},
+  tavkozlesLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása a távközlésnek."},
+
+  //Lakossági
+  lakossagiTitle: { en: "Residential", hu: "Lakossági"},
+  lakossagiText: { en: "Here come the informations about residential.", hu: "Ide jönnek az információk a lakosságiról."},
+  lakossagiLong: { en: "Here comes the long description for residential.", hu: "Ide jön a hosszabb leírása a lakosságinak."},
+
+  //Ipari
+  ipariTitle: { en: "Industrial", hu: "Ipari"},
+  ipariText: { en: "Here come the informations about industrial.", hu: "Ide jönnek az információk az ipariról."},
+  ipariLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása az ipariról."},
+
+  //Projekt előkészítés
+  projektTitle: { en: "Industrial", hu: "projekt előkészítés, projektspecifikus típustervek"},
+  projektText: { en: "Here come the informations about industrial.", hu: "Ide jönnek az információk az ipariról."},
+  projektLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása az ipariról."},
+
 } as const;
 
 
