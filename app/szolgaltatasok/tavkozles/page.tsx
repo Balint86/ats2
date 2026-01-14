@@ -1,7 +1,7 @@
 "use client";
 
 import OverlayCard from "@/app/components/OverlayCard";
-import { useLanguage } from "../../components/LanguageProvider";
+import { useLanguage } from "@/app/components/LanguageProvider";
 
 export default function TavkozlesPage() {
   const { t } = useLanguage();
@@ -23,11 +23,51 @@ export default function TavkozlesPage() {
         />
 
         <OverlayCard
-          href="/szolgaltatasok/megujulo/ipari"
-          imgSrc="/ipari.svg"
-          imgAlt="Ipari"
-          title={t("ipariTitle")}
-          text={t("ipariText")}
+          href="/szolgaltatasok/tavkozles/tervezes"
+          imgSrc="/tervezes.svg"
+          imgAlt="Tervezes"
+          title={t("tervezesTitle")}
+          text={t("tervezesText")}
+        />
+
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/mernoki-szolgaltatasok"
+          imgSrc="/mernoki.svg"
+          imgAlt="MernokiSzolgaltatasok"
+          title={t("mernokiTitle")}
+          text={t("mernokiText")}
+        />
+
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/radio-kivitel"
+          imgSrc="/radio-kivitel.svg"
+          imgAlt="RadioKivitel"
+          title={t("radioTitle")}
+          text={t("radioText")}
+        />
+
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/acelszerkezet-gyartas"
+          imgSrc="/acelszerkezet-gyartas.svg"
+          imgAlt="AcelszerkezetGyartas"
+          title={t("acelszerkezetTitle")}
+          text={t("acelszerkezetText")}
+        />
+
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/erosaramu-ellatas"
+          imgSrc="/erosaramu.svg"
+          imgAlt="ErosaramuEllatas"
+          title={t("erosaramuTitle")}
+          text={t("erosaramuText")}
+        />
+
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/uzemeltetes"
+          imgSrc="/uzemeltetes.svg"
+          imgAlt="Uzemeletetes"
+          title={t("uzemeltetesTitle")}
+          text={t("uzemeltetesText")}
         />
       </div>
        

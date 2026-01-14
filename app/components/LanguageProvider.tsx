@@ -41,28 +41,190 @@ const dict = {
 
   // Megújuló
   megujuloTitle: { en: "Renewable", hu: "Megújuló"},
-  megujuloText: { en: "Here come the informations about renewable.", hu: "Ide jönnek az információk a megújulóról."},
-  megujuloLong: { en: "Here comes the long description for renewal.", hu: "Ide jön a hosszabb leírása a megújulónak."},
+  megujuloText: { en: "Medium lenght.", hu: "Közepesen hosszú lehet."},
+  megujuloLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   // Távközlés
   tavkozlesTitle: { en: "Telecommunication", hu: "Távközlés"},
-  tavkozlesText: { en: "Here come the informations about telecom.", hu: "Ide jönnek az információk a távközlésről."},
-  tavkozlesLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása a távközlésnek."},
+  tavkozlesText: { en: "Medium lenght.", hu: "Közepesen hosszú lehet."},
+  tavkozlesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Lakossági
   lakossagiTitle: { en: "Residential", hu: "Lakossági"},
   lakossagiText: { en: "Here come the informations about residential.", hu: "Ide jönnek az információk a lakosságiról."},
-  lakossagiLong: { en: "Here comes the long description for residential.", hu: "Ide jön a hosszabb leírása a lakosságinak."},
+  lakossagiLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Ipari
   ipariTitle: { en: "Industrial", hu: "Ipari"},
   ipariText: { en: "Here come the informations about industrial.", hu: "Ide jönnek az információk az ipariról."},
-  ipariLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása az ipariról."},
+  ipariLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Projekt előkészítés
-  projektTitle: { en: "Industrial", hu: "projekt előkészítés, projektspecifikus típustervek"},
-  projektText: { en: "Here come the informations about industrial.", hu: "Ide jönnek az információk az ipariról."},
-  projektLong: { en: "Here comes the long description for telecom.", hu: "Ide jön a hosszabb leírása az ipariról."},
+  projektTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  projektText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  projektLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Tervezés, helyspecifikus tervek
+  tervezesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  tervezesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  tervezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Mérnöki szakértői szolgáltatások
+  mernokiTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  mernokiText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  mernokiLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+ 
+  //Rádiótechnikai kivitelezés
+  radioTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  radioText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  radioLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Acélszerkezetek gyártása, építészeti kivitelezés
+  acelszerkezetTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  acelszerkezetText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  acelszerkezetLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Erősáramú energiaellátás
+  erosaramuTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  erosaramuText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  erosaramuLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Üzemeltetés
+  uzemeltetesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  uzemeltetesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  uzemeltetesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Napelem
+  napelemTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  napelemText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  napelemLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Energiatároló
+  energiataroloTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  energiataroloText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  energiataroloLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Hőszivattyú
+  hoszivattyuTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  hoszivattyuText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  hoszivattyuLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Nyílászáró csere
+  nyilaszaroTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  nyilaszaroText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  nyilaszaroLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Napelem, erőművek
+  napelemeromuTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  napelemeromuText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  napelemeromuLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Építészeti tervezés
+  epiteszetiTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  epiteszetiText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  epiteszetiLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Rádiótechnikai berendezések elrendezési tervei
+  radioelrendezesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  radioelrendezesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  radioelrendezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Erősáramú energiaellátás tervezése
+  erosaramtervezesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  erosaramtervezesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  erosaramtervezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Építmények felmérése, szakvélemény készítése
+  epitmenyfelmeresTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  epitmenyfelmeresText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  epitmenyfelmeresLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Acélszerkezetek statikai vizsgálata, erősítési tervek készítése
+  acelszerkezetstatikaTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  acelszerkezetstatikaText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  acelszerkezetstatikaLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Acélszerkezetek műszeres vizsgálata, adatelemzés, kiértékelés
+  acelszerkezetmuszeresTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  acelszerkezetmuszeresText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  acelszerkezetmuszeresLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Egyedi acélszerkezetek tervezése
+  acelszerkezettervezesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  acelszerkezettervezesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  acelszerkezettervezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Bázisállomások
+  bazisallomasTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  nazisallomasText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  bazisallomasLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Mikrohullámú összeköttetések
+  mikroTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  mikroText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  mikroLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //BSC, RNC, DWDM
+  bscTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  bscText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  bscLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Távközlési tornyok
+  tornyokTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  tornyokText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  tornyokLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //20 kV kivitelezés, hálózatfejlesztés, transzformátor telepítés, csere
+  huszkvTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  huszkvText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  huszkvLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //0,4 kV földkábeles, légkábeles kivitelezés, mérőhely kiépítés
+  nullanegykvTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  nullanegykvText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  nullanegykvLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Víztorony fejszerkezet átalakítás
+  viztoronyTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  viztoronyText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  viztoronyLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Szélerőmű törzsszerkezet átalakítása bázisállomás befogadására
+  szeleromuTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  szeleromuText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  szeleromuLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Szalagkorlát átalakítása energiaelnyelő elemekkel
+  szalagkorlatTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  szalagkorlatText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  szalagkorlatLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Rácsos szerkezetű tornyok
+  racsostoronyTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  racsostoronyText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  racsostoronyLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Monopole acélszerkezetű tornyok
+  monopoletoronyTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  monopoletoronyText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  monopoletoronyLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Előfeszített beton oszlopok
+  elofeszitettbetonTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  elofeszitettbetonText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  elofeszitettbetonLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Sátortetős antennatartó szerkezetek
+  satortetosTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  satortetosText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  satortetosLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  //Lapostetős antennatartó szerkezetek
+  lapostetosTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  lapostetosText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  lapostetosLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+
 
 } as const;
 
