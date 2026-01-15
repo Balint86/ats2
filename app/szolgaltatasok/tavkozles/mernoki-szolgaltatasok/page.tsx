@@ -31,8 +31,8 @@ export default function MernokiSzolgaltatasokPage() {
         />
 
         <OverlayCard
-          href="/szolgaltatasok/tavkozles/mernoki-szolgaltatasok6acel-muszeres-vizsgalat"
-          imgSrc="/muszeres.svg"
+          href="/szolgaltatasok/tavkozles/mernoki-szolgaltatasok/acel-muszeres-vizsgalat"
+          imgSrc="/muszeres-vizsgalat.svg"
           imgAlt="AcekMuszeresVizsgalata"
           title={t("acelszerkezetmuszeresTitle")}
           text={t("acelszerkezetmuszeresText")}

@@ -58,8 +58,8 @@ export default function TavkozlesPage() {
           href="/szolgaltatasok/tavkozles/erosaramu-ellatas"
           imgSrc="/erosaramu.svg"
           imgAlt="ErosaramuEllatas"
-          title={t("erosaramuTitle")}
-          text={t("erosaramuText")}
+          title={t("erosaramuellatasTitle")}
+          text={t("erosaramuellatasText")}
         />
 
         <OverlayCard

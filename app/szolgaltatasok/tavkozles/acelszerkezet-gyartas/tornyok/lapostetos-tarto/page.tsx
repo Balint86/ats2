@@ -1,8 +1,14 @@
-export default function MegujuloPage() {
+"use client";
+
+import { useLanguage } from "@/app/components/LanguageProvider";
+
+export default function LapostetosTartoPage() {
+  const { t } = useLanguage();    
+
     return (
       <section style={{ padding: "32px 0" }}>
-        <h1>Megújuló</h1>
-        <p>Ide jön a megújuló leírása.</p>
+        <h1>{t("lapostetostartoTitle")}</h1>
+        <p>{t("lapostetostartoLong")}</p>
       </section>
     );
   }

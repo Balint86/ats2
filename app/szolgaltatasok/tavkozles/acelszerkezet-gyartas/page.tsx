@@ -1,8 +1,28 @@
-export default function MegujuloPage() {
+"use client";
+
+import OverlayCard from "@/app/components/OverlayCard";
+import { useLanguage } from "@/app/components/LanguageProvider";
+
+export default function AcelszerkezetGyartasPage() {
+  const { t } = useLanguage();
+    
     return (
       <section style={{ padding: "32px 0" }}>
-        <h1>Megújuló</h1>
-        <p>Ide jön a megújuló leírása.</p>
+        <h1>{t("acelszerkezetTitle")}</h1>
+        <p>{t("acelszerkezetLong")}</p>
+
+        <div style={{ height: 18 }} />
+
+      <div className="overlayGrid">
+        <OverlayCard
+          href="/szolgaltatasok/tavkozles/acelszerkezet-gyartas/tornyok"
+          imgSrc="/tornyok.svg"
+          imgAlt="Tornyok"
+          title={t("tornyokTitle")}
+          text={t("tornyokText")}
+        />
+      </div>
+       
       </section>
     );
   }

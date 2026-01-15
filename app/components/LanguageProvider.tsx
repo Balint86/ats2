@@ -50,13 +50,13 @@ const dict = {
   tavkozlesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Lakossági
-  lakossagiTitle: { en: "Residential", hu: "Lakossági"},
-  lakossagiText: { en: "Here come the informations about residential.", hu: "Ide jönnek az információk a lakosságiról."},
+  lakossagiTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  lakossagiText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   lakossagiLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Ipari
-  ipariTitle: { en: "Industrial", hu: "Ipari"},
-  ipariText: { en: "Here come the informations about industrial.", hu: "Ide jönnek az információk az ipariról."},
+  ipariTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  ipariText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   ipariLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Projekt előkészítés
@@ -85,9 +85,9 @@ const dict = {
   acelszerkezetLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Erősáramú energiaellátás
-  erosaramuTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
-  erosaramuText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
-  erosaramuLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+  erosaramuellatasTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  erosaramuellatasText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  erosaramuellatasLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Üzemeltetés
   uzemeltetesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
@@ -155,9 +155,9 @@ const dict = {
   acelszerkezettervezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Bázisállomások
-  bazisallomasTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
-  nazisallomasText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
-  bazisallomasLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+  bazisallomasokTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  bazisallomasokText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  bazisallomasokLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Mikrohullámú összeköttetések
   mikroTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
@@ -210,19 +210,19 @@ const dict = {
   monopoletoronyLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Előfeszített beton oszlopok
-  elofeszitettbetonTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
-  elofeszitettbetonText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
-  elofeszitettbetonLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+  elofeszitettbetontoronyTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  elofeszitettbetontoronyText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  elofeszitettbetontoronyLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Sátortetős antennatartó szerkezetek
-  satortetosTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
-  satortetosText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
-  satortetosLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+  satortetostartoTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  satortetostartoText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  satortetostartoLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Lapostetős antennatartó szerkezetek
-  lapostetosTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
-  lapostetosText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
-  lapostetosLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+  lapostetostartoTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  lapostetostartoText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  lapostetostartoLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
 
 
