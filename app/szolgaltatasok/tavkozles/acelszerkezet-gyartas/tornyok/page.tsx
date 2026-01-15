@@ -2,12 +2,21 @@
 
 import OverlayCard from "@/app/components/OverlayCard";
 import { useLanguage } from "@/app/components/LanguageProvider";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function TornyokPage() {
   const { t } = useLanguage();
     
     return (
       <section style={{ padding: "32px 0" }}>
+        <Breadcrumbs
+        items={[
+          { label: t("services"), href: "/szolgaltatasok" },
+          { label: t("tavkozlesTitle"), href: "/szolgaltatasok/tavkozles" },
+          { label: t("acelszerkezetTitle"), href: "/szolgaltatasok/tavkozles/acelszerkezet-gyartas"},
+          { label: t("tornyokTitle")}
+        ]}
+      />
         <h1>{t("tornyokTitle")}</h1>
         <p>{t("tornyokLong")}</p>
 

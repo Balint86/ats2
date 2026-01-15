@@ -472,6 +472,42 @@ a {
   }
 }
 
+/* -------- Breadcrumbs -------- */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap:0px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 16px 0 16px;
+}
+
+.breadcrumbs a {
+  color: var(--blue-main);
+  font-weight: 600;
+  transition: background 140ms ease, color 140ms ease;
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+.breadcrumbs a:hover {
+  background: rgba(45, 116, 214, 0.08);
+  color: var(--blue-dark);
+}
+
+.breadcrumbSep {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.breadcrumbCurrent {
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+
 
 /* -------------------- */
 /* RESPONSIVE RULES     */

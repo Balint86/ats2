@@ -2,12 +2,19 @@
 
 import OverlayCard from "@/app/components/OverlayCard";
 import { useLanguage } from "@/app/components/LanguageProvider";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function TavkozlesPage() {
   const { t } = useLanguage();
     
     return (
       <section style={{ padding: "32px 0" }}>
+        <Breadcrumbs
+        items={[
+          { label: t("services"), href: "/szolgaltatasok" },
+          { label: t("tavkozlesTitle") },
+        ]}
+      />
         <h1>{t("tavkozlesTitle")}</h1>
         <p>{t("tavkozlesLong")}</p>
 

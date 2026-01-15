@@ -2,12 +2,20 @@
 
 import OverlayCard from "@/app/components/OverlayCard";
 import { useLanguage } from "@/app/components/LanguageProvider";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function IpariPage() {
   const { t } = useLanguage();
     
     return (
       <section style={{ padding: "32px 0" }}>
+        <Breadcrumbs
+        items={[
+          { label: t("services"), href: "/szolgaltatasok" },
+          { label: t("megujuloTitle"), href: "/szolgaltatasok/megujulo" },
+          { label: t("ipariTitle")}
+        ]}
+      />
         <h1>{t("ipariTitle")}</h1>
         <p>{t("ipariLong")}</p>
 

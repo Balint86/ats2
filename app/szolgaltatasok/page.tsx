@@ -3,9 +3,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "../components/LanguageProvider"; 
+import { useLanguage } from "../components/LanguageProvider";
 
-export default function ServicesPage() {
+export default function SzolgaltatasokPage() {
 
   const { t } = useLanguage();
 

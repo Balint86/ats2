@@ -20,7 +20,7 @@ export default function OverlayCard({
         src={imgSrc}
         alt={imgAlt}
         width={1200}
-        height={800}
+        height={900}
         className="overlayImg"
         priority={false}
       />

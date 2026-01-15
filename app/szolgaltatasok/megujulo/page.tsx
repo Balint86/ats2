@@ -1,13 +1,20 @@
 "use client";
 
 import OverlayCard from "@/app/components/OverlayCard";
-import { useLanguage } from "../../components/LanguageProvider";
+import { useLanguage } from "@/app/components/LanguageProvider";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 
 export default function MegujuloPage() {
   const { t } = useLanguage();
     
     return (
       <section style={{ padding: "32px 0" }}>
+        <Breadcrumbs
+        items={[
+          { label: t("services"), href: "/szolgaltatasok" },
+          { label: t("megujuloTitle") },
+        ]}
+      />
         <h1>{t("megujuloTitle")}</h1>
         <p>{t("megujuloLong")}</p>
 
