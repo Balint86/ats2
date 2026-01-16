@@ -114,12 +114,42 @@ a {
   color: var(--blue-main);
   font-weight: 600;
   transition: background 140ms ease, color 140ms ease, transform 140ms ease;
+
+  /* for underline animation */
+  position: relative;
+  overflow: hidden;
 }
 
 .navLink:hover {
   background: rgba(45, 116, 214, 0.08);
   color: var(--blue-dark);
   transform: translateY(-1px);
+}
+
+/* animated underline */
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue-main), var(--blue-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+  opacity: 0.9;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* tap feedback */
+.navLink:active {
+  transform: translateY(0);
+  background: rgba(45, 116, 214, 0.10);
 }
 
 /* -------------------- */
@@ -161,6 +191,11 @@ a {
   background: var(--blue-main);
   position: relative;
   display: block;
+  transition: transform 160ms ease;
+}
+
+.menuBtn:hover .menuIcon {
+  transform: scaleX(1.06);
 }
 
 .menuIcon::before,
@@ -188,6 +223,15 @@ a {
 .mobileMenu {
   border-bottom: 1px solid var(--border-light);
   background: #ffffff;
+
+  /* drop animation */
+  animation: menuDrop 240ms cubic-bezier(.2,.9,.2,1) both;
+  transform-origin: top;
+}
+
+@keyframes menuDrop {
+  from { opacity: 0; transform: translateY(-8px) scaleY(0.98); }
+  to   { opacity: 1; transform: translateY(0) scaleY(1); }
 }
 
 .mobileMenuInner {
@@ -207,12 +251,34 @@ a {
   font-weight: 600;
 
   transition: background 140ms ease, transform 140ms ease, color 140ms ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .mobileLink:hover {
   background: rgba(45, 116, 214, 0.08);
   color: var(--blue-dark);
   transform: translateY(-1px);
+}
+
+/* underline for mobile links */
+.mobileLink::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 8px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue-main), var(--blue-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+  opacity: 0.85;
+}
+
+.mobileLink:hover::after {
+  transform: scaleX(1);
 }
 
 .mobileLang {
@@ -223,21 +289,16 @@ a {
 /* PAGE TRANSITIONS     */
 /* -------------------- */
 
+/* upgraded, reliable transition (no blur) */
 .pageTransition {
-  animation: pageIn 260ms ease-out both;
+  animation: pageIn 420ms cubic-bezier(.2,.9,.2,1) both;
+  transform-origin: top center;
 }
 
 @keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+  0%   { opacity: 0; transform: translateY(14px) scale(0.985); }
+  60%  { opacity: 1; transform: translateY(0) scale(1.002); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* -------------------- */
@@ -268,7 +329,6 @@ a {
 /* LANGUAGE SELECTOR    */
 /* -------------------- */
 
-/* Language switcher styling (works for either buttons OR a <select>) */
 .langSwitch {
   display: inline-flex;
   align-items: center;
@@ -302,7 +362,6 @@ a {
   color: var(--blue-dark);
 }
 
-/* If your LanguageSwitcher uses a <select> instead of buttons */
 .langSelect {
   appearance: none;
   -webkit-appearance: none;
@@ -323,8 +382,10 @@ a {
   transform: translateY(-1px);
 }
 
+/* -------------------- */
+/* FULL BLEED IMAGE      */
+/* -------------------- */
 
-/* Full-bleed section/image: spans the entire viewport width */
 .fullBleed {
   width: 100vw;
   margin-left: 50%;
@@ -358,6 +419,7 @@ a {
 }
 
 .serviceCard {
+  position: relative;
   display: block;
   border: 1px solid var(--border-light);
   border-radius: 18px;
@@ -375,10 +437,36 @@ a {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
 }
 
+/* image zoom on hover */
 .serviceImage {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 320ms ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.04);
+}
+
+/* shine sweep */
+.serviceCard::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0) 60%
+  );
+  transform: translateX(-60%) rotate(12deg);
+  transition: transform 520ms ease;
+  pointer-events: none;
+}
+
+.serviceCard:hover::before {
+  transform: translateX(60%) rotate(12deg);
 }
 
 .serviceCard h2 {
@@ -393,7 +481,6 @@ a {
   color: var(--text-muted);
   line-height: 1.5;
 }
-
 
 /* ---------- */
 /* Overlay Card */
@@ -421,16 +508,37 @@ a {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
 }
 
+/* image zoom on hover */
 .overlayImg {
   width: 100%;
-  height: 320px;           /* card image height */
+  height: 320px;
   object-fit: cover;
   display: block;
-  transition: transform 220ms ease;
+  transition: transform 320ms ease;
 }
 
 .overlayCard:hover .overlayImg {
-  transform: scale(1.03);
+  transform: scale(1.04);
+}
+
+/* shine sweep */
+.overlayCard::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0) 60%
+  );
+  transform: translateX(-60%) rotate(12deg);
+  transition: transform 520ms ease;
+  pointer-events: none;
+}
+
+.overlayCard:hover::before {
+  transform: translateX(60%) rotate(12deg);
 }
 
 /* Gradient shade under text */
@@ -445,8 +553,8 @@ a {
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.80),
+    rgba(0, 0, 0, 0.55),
     rgba(0, 0, 0, 0)
   );
 }
@@ -476,7 +584,7 @@ a {
 .breadcrumbs {
   display: flex;
   align-items: center;
-  gap:0px;
+  gap: 0px;
   flex-wrap: wrap;
   font-size: 14px;
   color: var(--text-muted);
@@ -507,8 +615,6 @@ a {
   padding: 6px 8px;
 }
 
-
-
 /* -------------------- */
 /* RESPONSIVE RULES     */
 /* -------------------- */
@@ -534,5 +640,112 @@ a {
   /* hide hamburger on desktop */
   .menuBtn {
     display: none;
+  }
+}
+
+/* -------------------- */
+/* REDUCED MOTION       */
+/* -------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pageTransition {
+    animation: none;
+  }
+  .mobileMenu {
+    animation: none;
+  }
+  .navLink,
+  .mobileLink,
+  .menuBtn,
+  .serviceCard,
+  .overlayCard,
+  .serviceImage,
+  .overlayImg {
+    transition: none !important;
+  }
+}
+
+
+/* -------------------- */
+/* SCROLL REVEAL        */
+/* -------------------- */
+
+/* -------------------- */
+/* SCROLL REVEAL (SLOW) */
+/* -------------------- */
+
+/* -------------------- */
+/* SCROLL REVEAL (SLOW) */
+/* -------------------- */
+
+.reveal {
+  transition:
+    opacity 900ms cubic-bezier(.2,.9,.2,1),
+    transform 900ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+
+.reveal.show {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  visibility: visible !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
+
+
+
+/* -------------------- */
+/* FUN BACKGROUND BLOBS */
+/* -------------------- */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(42px);
+  opacity: 0.22;
+  pointer-events: none;
+  animation: floatBlob 12s ease-in-out infinite;
+}
+
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(22px, 16px) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
+/* little “pop” */
+.serviceCard:hover,
+.overlayCard:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.header {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow 200ms ease;
+}
+
+@supports selector(:has(*)) {
+  body:has(.pageTransition) .header {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   }
 }
