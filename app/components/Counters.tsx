@@ -33,13 +33,6 @@ export default function Counters() {
     // Run only once per hard refresh
     if (hasCountedThisLoad) return;
 
-    // Reduced motion: jump to final values
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
-      setNumbers(values);
-      hasCountedThisLoad = true;
-      return;
-    }
-
     const el = ref.current;
     if (!el) return;
 
