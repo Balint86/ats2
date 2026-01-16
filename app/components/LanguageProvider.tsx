@@ -20,6 +20,8 @@ const dict = {
     en: "A clean, modern site with smooth animations and mobile-first design.",
     hu: "Letisztult, modern weboldal sima animációkkal és mobilra optimalizált megjelenéssel.",
   },
+  partnersTitle: { en: "Our partners:", hu: "Partnereink:"},
+  partnersText: { en: "We are proud to have worked with these companies.", hu: "Büszkék vagyunk rá, hogy ezekkel a cégekkel dolgoztunk."},
 
   // About
   aboutTitle: { en: "About ATS-mobile", hu: "Az ATS-mobile-ról" },
