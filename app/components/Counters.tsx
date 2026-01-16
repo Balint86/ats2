@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLanguage } from "./LanguageProvider";
 
 let hasCountedThisLoad = false; // resets only on hard refresh / full reload
 
@@ -15,13 +16,14 @@ function easeOutCubic(t: number) {
 }
 
 export default function Counters() {
-  const items: CounterItem[] = useMemo(
+    const { t } = useLanguage();
+    const items: CounterItem[] = useMemo(
     () => [
-      { label: "Projects", value: 128, suffix: "+" },
-      { label: "Partners", value: 24, suffix: "+" },
-      { label: "Years of experience", value: 12, suffix: "+" },
-      { label: "Deployments", value: 340, suffix: "+" },
-      { label: "Uptime", value: 99.9, suffix: "%" },
+      { label: t("szamlalo1"), value: 128, suffix: "+" },
+      { label: t("szamlalo2"), value: 24, suffix: "+" },
+      { label: t("szamlalo3"), value: 12, suffix: "+" },
+      { label: t("szamlalo4"), value: 340, suffix: "+" },
+      { label: t("szamlalo5"), value: 99.9, suffix: "%" },
     ],
     []
   );

@@ -22,6 +22,12 @@ const dict = {
   },
   partnersTitle: { en: "Our partners:", hu: "Partnereink:"},
   partnersText: { en: "We are proud to have worked with these companies.", hu: "Büszkék vagyunk rá, hogy ezekkel a cégekkel dolgoztunk."},
+  
+  szamlalo1: { en: "Projects", hu: "Projektek"},
+  szamlalo2: { en: "Partners", hu: "Partnerek"},
+  szamlalo3: { en: "Years of experience", hu: "Év tapasztalat"},
+  szamlalo4: { en: "Towers", hu: "Tornyok"},
+  szamlalo5: { en: "Satisfaction", hu: "Elégedettség"},
 
   // About
   aboutTitle: { en: "About ATS-mobile", hu: "Az ATS-mobile-ról" },
