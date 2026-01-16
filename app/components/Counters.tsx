@@ -5,42 +5,37 @@ import { useLanguage } from "./LanguageProvider";
 
 let hasCountedThisLoad = false; // resets only on hard refresh / full reload
 
-type CounterItem = {
-  label: string;
-  value: number;
-  suffix?: string;
-};
-
 function easeOutCubic(t: number) {
   return 1 - Math.pow(1 - t, 3);
 }
 
+const METRICS = [
+  { key: "szamlalo1", value: 128, suffix: "+" },
+  { key: "szamlalo2", value: 24, suffix: "+" },
+  { key: "szamlalo3", value: 12, suffix: "+" },
+  { key: "szamlalo4", value: 340, suffix: "+" },
+  { key: "szamlalo5", value: 99.9, suffix: "%" },
+] as const;
+
 export default function Counters() {
-    const { t } = useLanguage();
-    const items: CounterItem[] = useMemo(
-    () => [
-      { label: t("szamlalo1"), value: 128, suffix: "+" },
-      { label: t("szamlalo2"), value: 24, suffix: "+" },
-      { label: t("szamlalo3"), value: 12, suffix: "+" },
-      { label: t("szamlalo4"), value: 340, suffix: "+" },
-      { label: t("szamlalo5"), value: 99.9, suffix: "%" },
-    ],
-    []
-  );
+  const { t } = useLanguage();
+
+  // IMPORTANT: stable array (does not change on each render)
+  const values = useMemo(() => METRICS.map((m) => m.value), []);
 
   const [numbers, setNumbers] = useState<number[]>(
-    () => (hasCountedThisLoad ? items.map((i) => i.value) : items.map(() => 0))
+    () => (hasCountedThisLoad ? values : values.map(() => 0))
   );
 
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // If already counted in this load, do nothing
+    // Run only once per hard refresh
     if (hasCountedThisLoad) return;
 
-    // Respect reduced motion
+    // Reduced motion: jump to final values
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
-      setNumbers(items.map((i) => i.value));
+      setNumbers(values);
       hasCountedThisLoad = true;
       return;
     }
@@ -48,24 +43,18 @@ export default function Counters() {
     const el = ref.current;
     if (!el) return;
 
-    let started = false;
     let raf = 0;
 
     const start = () => {
-      if (started) return;
-      started = true;
-
       const duration = 3000;
       const startTime = performance.now();
-      const from = items.map(() => 0);
-      const to = items.map((i) => i.value);
+      const from = values.map(() => 0);
 
       const tick = (now: number) => {
-        const t = Math.min(1, (now - startTime) / duration);
-        const e = easeOutCubic(t);
+        const p = Math.min(1, (now - startTime) / duration);
+        const e = easeOutCubic(p);
 
-        const next = to.map((target, idx) => {
-          // keep decimals if target has decimals (e.g., 99.9)
+        const next = values.map((target, idx) => {
           const hasDecimal = String(target).includes(".");
           const v = from[idx] + (target - from[idx]) * e;
           return hasDecimal ? Math.round(v * 10) / 10 : Math.round(v);
@@ -73,10 +62,10 @@ export default function Counters() {
 
         setNumbers(next);
 
-        if (t < 1) {
+        if (p < 1) {
           raf = requestAnimationFrame(tick);
         } else {
-          setNumbers(to);
+          setNumbers(values);
           hasCountedThisLoad = true;
         }
       };
@@ -100,19 +89,19 @@ export default function Counters() {
       obs.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [items]);
+  }, [values]);
 
   return (
     <section className="countersSection" aria-label="Key metrics">
       <div className="countersInner" ref={ref}>
         <div className="countersGrid">
-          {items.map((item, idx) => (
-            <div className="counterCard" key={item.label}>
+          {METRICS.map((m, idx) => (
+            <div className="counterCard" key={m.key}>
               <div className="counterValue">
                 {numbers[idx]}
-                {item.suffix ?? ""}
+                {m.suffix}
               </div>
-              <div className="counterLabel">{item.label}</div>
+              <div className="counterLabel">{t(m.key as any)}</div>
             </div>
           ))}
         </div>
