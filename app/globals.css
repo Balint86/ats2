@@ -47,6 +47,48 @@ a {
 }
 
 /* -------------------- */
+/* FUN BACKGROUND BLOBS */
+/* -------------------- */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(46px);
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: floatGlow 14s ease-in-out infinite;
+}
+
+body::before {
+  top: -160px;
+  left: -200px;
+  background: radial-gradient(circle, rgba(45, 116, 214, 0.6), transparent 70%);
+}
+
+body::after {
+  bottom: -200px;
+  right: -200px;
+  background: radial-gradient(circle, rgba(11, 78, 162, 0.6), transparent 70%);
+  animation-delay: -7s;
+}
+
+@keyframes floatGlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, 24px);
+  }
+}
+
+/* -------------------- */
 /* HEADER + NAVIGATION  */
 /* -------------------- */
 
@@ -54,8 +96,15 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #ffffff;
   border-bottom: 1px solid var(--border-light);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.92)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Full-width nav (controls absolute positioning) */
@@ -105,7 +154,7 @@ a {
 }
 
 /* -------------------- */
-/* NAV LINKS            */
+/* NAV LINKS + UNDERLINE (WORKS EVERYWHERE) */
 /* -------------------- */
 
 .navLink {
@@ -115,9 +164,7 @@ a {
   font-weight: 600;
   transition: background 140ms ease, color 140ms ease, transform 140ms ease;
 
-  /* for underline animation */
   position: relative;
-  overflow: hidden;
 }
 
 .navLink:hover {
@@ -126,30 +173,63 @@ a {
   transform: translateY(-1px);
 }
 
-/* animated underline */
 .navLink::after {
   content: "";
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 6px;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--blue-main), var(--blue-dark));
+
+  background: linear-gradient(
+    90deg,
+    var(--blue-main),
+    var(--blue-dark),
+    var(--blue-main)
+  );
+  background-size: 200% 100%;
+
+  opacity: 0;
   transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 180ms ease;
-  opacity: 0.9;
+  transform-origin: center;
+
+  transition: transform 200ms ease, opacity 160ms ease;
 }
 
-.navLink:hover::after {
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  opacity: 1;
   transform: scaleX(1);
+  animation: navGlow 900ms linear infinite;
 }
 
-/* tap feedback */
+@keyframes navGlow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+/* active link */
+.navLinkActive {
+  background: rgba(45, 116, 214, 0.12);
+  color: var(--blue-dark);
+}
+
+/* press feedback */
 .navLink:active {
-  transform: translateY(0);
+  transform: scale(0.985);
   background: rgba(45, 116, 214, 0.10);
+}
+
+@media (max-width: 720px) {
+  .navLink::after {
+    bottom: 2px;
+  }
 }
 
 /* -------------------- */
@@ -165,6 +245,7 @@ a {
 /* -------------------- */
 
 .menuBtn {
+  position: relative;
   width: 44px;
   height: 44px;
   border-radius: var(--radius);
@@ -185,17 +266,15 @@ a {
   transform: translateY(-1px);
 }
 
+/* clean hamburger -> X */
 .menuIcon {
   width: 18px;
   height: 2px;
   background: var(--blue-main);
   position: relative;
   display: block;
-  transition: transform 160ms ease;
-}
-
-.menuBtn:hover .menuIcon {
-  transform: scaleX(1.06);
+  border-radius: 999px;
+  transition: transform 220ms ease, background 180ms ease;
 }
 
 .menuIcon::before,
@@ -206,14 +285,28 @@ a {
   width: 18px;
   height: 2px;
   background: var(--blue-main);
+  border-radius: 999px;
+  transition: transform 220ms ease, opacity 180ms ease;
 }
 
 .menuIcon::before {
-  top: -6px;
+  transform: translateY(-6px);
 }
 
 .menuIcon::after {
-  top: 6px;
+  transform: translateY(6px);
+}
+
+.menuBtn[aria-expanded="true"] .menuIcon {
+  background: transparent;
+}
+
+.menuBtn[aria-expanded="true"] .menuIcon::before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.menuBtn[aria-expanded="true"] .menuIcon::after {
+  transform: translateY(0) rotate(-45deg);
 }
 
 /* -------------------- */
@@ -223,15 +316,19 @@ a {
 .mobileMenu {
   border-bottom: 1px solid var(--border-light);
   background: #ffffff;
-
-  /* drop animation */
-  animation: menuDrop 240ms cubic-bezier(.2,.9,.2,1) both;
   transform-origin: top;
+  animation: menuDown 480ms cubic-bezier(.16,1,.3,1) both;
 }
 
-@keyframes menuDrop {
-  from { opacity: 0; transform: translateY(-8px) scaleY(0.98); }
-  to   { opacity: 1; transform: translateY(0) scaleY(1); }
+@keyframes menuDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scaleY(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
 }
 
 .mobileMenuInner {
@@ -252,7 +349,6 @@ a {
 
   transition: background 140ms ease, transform 140ms ease, color 140ms ease;
   position: relative;
-  overflow: hidden;
 }
 
 .mobileLink:hover {
@@ -261,23 +357,38 @@ a {
   transform: translateY(-1px);
 }
 
-/* underline for mobile links */
+.mobileLink:active {
+  transform: scale(0.985);
+}
+
+/* mobile underline to match nav */
 .mobileLink::after {
   content: "";
   position: absolute;
   left: 12px;
   right: 12px;
-  bottom: 8px;
+  bottom: 6px;
+
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--blue-main), var(--blue-dark));
+
+  background: linear-gradient(
+    90deg,
+    var(--blue-main),
+    var(--blue-dark),
+    var(--blue-main)
+  );
+  background-size: 200% 100%;
+
+  opacity: 0;
   transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 180ms ease;
-  opacity: 0.85;
+  transform-origin: center;
+
+  transition: transform 200ms ease, opacity 160ms ease;
 }
 
 .mobileLink:hover::after {
+  opacity: 1;
   transform: scaleX(1);
 }
 
@@ -289,16 +400,24 @@ a {
 /* PAGE TRANSITIONS     */
 /* -------------------- */
 
-/* upgraded, reliable transition (no blur) */
 .pageTransition {
   animation: pageIn 420ms cubic-bezier(.2,.9,.2,1) both;
   transform-origin: top center;
 }
 
 @keyframes pageIn {
-  0%   { opacity: 0; transform: translateY(14px) scale(0.985); }
-  60%  { opacity: 1; transform: translateY(0) scale(1.002); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.002);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* -------------------- */
@@ -308,7 +427,14 @@ a {
 .footer {
   border-top: 1px solid var(--border-light);
   margin-top: 44px;
-  background: #ffffff;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.92)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .footerInner {
@@ -383,7 +509,7 @@ a {
 }
 
 /* -------------------- */
-/* FULL BLEED IMAGE      */
+/* FULL BLEED IMAGE     */
 /* -------------------- */
 
 .fullBleed {
@@ -429,24 +555,46 @@ a {
   color: inherit;
 
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .serviceCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(45, 116, 214, 0.25);
 }
 
-/* image zoom on hover */
 .serviceImage {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 320ms ease;
+  transform: scale(1);
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
 }
 
 .serviceCard:hover .serviceImage {
-  transform: scale(1.04);
+  transform: scale(1.08);
+}
+
+/* glow overlay (reduced discoloration) */
+.serviceCard::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(45, 116, 214, 0.35),
+    rgba(11, 78, 162, 0.35),
+    rgba(45, 116, 214, 0.35)
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.serviceCard:hover::after {
+  opacity: 0.18;
 }
 
 /* shine sweep */
@@ -456,9 +604,9 @@ a {
   inset: -40%;
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0) 30%,
-    rgba(255,255,255,0.35) 45%,
-    rgba(255,255,255,0) 60%
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0) 60%
   );
   transform: translateX(-60%) rotate(12deg);
   transition: transform 520ms ease;
@@ -482,6 +630,10 @@ a {
   line-height: 1.5;
 }
 
+.serviceCard:active {
+  transform: scale(0.985);
+}
+
 /* ---------- */
 /* Overlay Card */
 /* ---------- */
@@ -500,25 +652,48 @@ a {
   border: 1px solid var(--border-light);
   background: #fff;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .overlayCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.14);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(45, 116, 214, 0.25);
 }
 
-/* image zoom on hover */
+/* image zoom */
 .overlayImg {
   width: 100%;
   height: 320px;
   object-fit: cover;
   display: block;
-  transition: transform 320ms ease;
+  transform: scale(1);
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
 }
 
 .overlayCard:hover .overlayImg {
-  transform: scale(1.04);
+  transform: scale(1.08);
+}
+
+/* glow overlay (reduced discoloration) */
+.overlayCard::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(45, 116, 214, 0.35),
+    rgba(11, 78, 162, 0.35),
+    rgba(45, 116, 214, 0.35)
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.overlayCard:hover::after {
+  opacity: 0.18;
 }
 
 /* shine sweep */
@@ -528,9 +703,9 @@ a {
   inset: -40%;
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0) 30%,
-    rgba(255,255,255,0.35) 45%,
-    rgba(255,255,255,0) 60%
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0) 60%
   );
   transform: translateX(-60%) rotate(12deg);
   transition: transform 520ms ease;
@@ -553,7 +728,7 @@ a {
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.80),
+    rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 0.55),
     rgba(0, 0, 0, 0)
   );
@@ -573,7 +748,10 @@ a {
   opacity: 0.92;
 }
 
-/* smaller height on small screens */
+.overlayCard:active {
+  transform: scale(0.985);
+}
+
 @media (max-width: 720px) {
   .overlayImg {
     height: 260px;
@@ -620,24 +798,20 @@ a {
 /* -------------------- */
 
 @media (max-width: 720px) {
-  /* hide left links on mobile */
   .navLeftArea {
     display: none;
   }
 
-  /* hide language switcher on mobile */
   .langDesktop {
     display: none;
   }
 
-  /* show hamburger */
   .menuBtn {
     display: inline-flex;
   }
 }
 
 @media (min-width: 721px) {
-  /* hide hamburger on desktop */
   .menuBtn {
     display: none;
   }
@@ -648,12 +822,16 @@ a {
 /* -------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .pageTransition {
-    animation: none;
+  body::before,
+  body::after {
+    animation: none !important;
   }
+
+  .pageTransition,
   .mobileMenu {
-    animation: none;
+    animation: none !important;
   }
+
   .navLink,
   .mobileLink,
   .menuBtn,
@@ -663,89 +841,114 @@ a {
   .overlayImg {
     transition: none !important;
   }
+
+  .navLink:hover::after,
+  .navLink:focus-visible::after {
+    animation: none !important;
+  }
 }
 
+/* After hydration, fade the whole page in once */
+body.hydrated .pageTransition {
+  animation: pageEnter 520ms cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes pageEnter {
+  from { transform: translateY(16px) scale(0.985); }
+  to   { transform: translateY(0) scale(1); }
+}
+
+body {
+  transition: opacity 220ms ease;
+}
+
+.bootSplash {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+
+.bootDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--blue-main);
+  animation: bootPulse 900ms ease-in-out infinite;
+  box-shadow: 0 0 0 10px rgba(45, 116, 214, 0.10);
+}
+
+@keyframes bootPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
 
 /* -------------------- */
-/* SCROLL REVEAL        */
+/* BOOT OVERLAY (NO FLASH) */
 /* -------------------- */
 
-/* -------------------- */
-/* SCROLL REVEAL (SLOW) */
-/* -------------------- */
+.bootOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: none; /* user can't interact while it's up anyway */
+}
+
+.bootOverlayFade {
+  animation: bootFadeOut 520ms cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@keyframes bootFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* simple spinner that matches your brand */
+.bootSpinner {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--blue-main);
+  box-shadow: 0 0 0 14px rgba(45, 116, 214, 0.10);
+  animation: bootPulse 900ms ease-in-out infinite;
+}
+
+@keyframes bootPulse {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.7); opacity: 1; }
+}
 
 /* -------------------- */
-/* SCROLL REVEAL (SLOW) */
+/* ROUTE ENTER (NO SSR FLASH) */
 /* -------------------- */
 
-.reveal {
+.pageWrap {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  filter: blur(10px);
+}
+
+.pageWrapEnter {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
   transition:
-    opacity 900ms cubic-bezier(.2,.9,.2,1),
-    transform 900ms cubic-bezier(.2,.9,.2,1);
-  will-change: opacity, transform;
+    opacity 1000ms cubic-bezier(.16,1,.3,1),
+    transform 1000ms cubic-bezier(.16,1,.3,1),
+    filter 1000ms cubic-bezier(.16,1,.3,1);
 }
 
-.reveal.show {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
-  visibility: visible !important;
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    transition: none !important;
+  .pageWrap,
+  .pageWrapEnter {
     opacity: 1 !important;
     transform: none !important;
-    visibility: visible !important;
-  }
-}
-
-
-
-/* -------------------- */
-/* FUN BACKGROUND BLOBS */
-/* -------------------- */
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  width: 520px;
-  height: 520px;
-  border-radius: 999px;
-  filter: blur(42px);
-  opacity: 0.22;
-  pointer-events: none;
-  animation: floatBlob 12s ease-in-out infinite;
-}
-
-
-@keyframes floatBlob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%      { transform: translate(22px, 16px) scale(1.06); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after {
-    animation: none;
-  }
-}
-
-/* little “pop” */
-.serviceCard:hover,
-.overlayCard:hover {
-  transform: translateY(-6px) scale(1.01);
-}
-
-.header {
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: box-shadow 200ms ease;
-}
-
-@supports selector(:has(*)) {
-  body:has(.pageTransition) .header {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    transition: none !important;
   }
 }
