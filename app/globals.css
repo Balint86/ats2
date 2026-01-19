@@ -1,6 +1,7 @@
 :root {
-  --blue-main: #2d74d6;
-  --blue-dark: #0b4ea2;
+  --blue-main: #2b72c4;
+  --blue-dark: #004492;
+  --blue-light: #559dee;
 
   --text-main: #0b1220;
   --text-muted: #6b7280;
@@ -53,48 +54,6 @@ a {
 
 .main {
   padding: 22px 0 10px;
-}
-
-/* -------------------- */
-/* FUN BACKGROUND BLOBS */
-/* -------------------- */
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  filter: blur(46px);
-  opacity: 0.08;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  animation: floatGlow 14s ease-in-out infinite;
-}
-
-body::before {
-  top: -160px;
-  left: -200px;
-  background: radial-gradient(circle, rgba(45, 116, 214, 0.6), transparent 70%);
-}
-
-body::after {
-  bottom: -200px;
-  right: -200px;
-  background: radial-gradient(circle, rgba(11, 78, 162, 0.6), transparent 70%);
-  animation-delay: -7s;
-}
-
-@keyframes floatGlow {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(30px, 24px);
-  }
 }
 
 /* -------------------- */
@@ -237,7 +196,7 @@ body::after {
 
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.9),
     rgba(255, 255, 255, 0.5)
   );
   backdrop-filter: blur(5px);
@@ -404,26 +363,41 @@ body::after {
 }
 
 /* clean hamburger -> X */
+/* Hamburger base */
 .menuIcon {
   width: 18px;
-  height: 2px;
-  background: var(--blue-main);
+  height: 3px;
+  background: var(--blue-main); /* middle bar */
   position: relative;
   display: block;
   border-radius: 999px;
-  transition: transform 220ms ease, background 180ms ease;
+  transition: background 180ms ease, transform 220ms ease;
 }
 
-.menuIcon::before,
+/* top bar */
+.menuIcon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 3px;
+  background: var(--blue-light);
+  border-radius: 999px;
+  transform: translateY(-6px);
+  transition: transform 220ms ease, opacity 180ms ease, background 180ms ease;
+}
+
+/* bottom bar */
 .menuIcon::after {
   content: "";
   position: absolute;
   left: 0;
   width: 18px;
-  height: 2px;
-  background: var(--blue-main);
+  height: 3px;
+  background: var(--blue-dark);
   border-radius: 999px;
-  transition: transform 220ms ease, opacity 180ms ease;
+  transform: translateY(6px);
+  transition: transform 220ms ease, opacity 180ms ease, background 180ms ease;
 }
 
 .menuIcon::before {
