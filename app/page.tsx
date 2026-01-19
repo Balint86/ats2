@@ -22,27 +22,30 @@ export default function Home() {
 
   return (
     <>
-      <section className="homeHero">
-        <div className="fullBleed">
+      {/* Logo mark hero (fade is on the image via CSS mask) */}
+      <section className="heroHex">
+        <div className="bleed">
           <Image
-            src="/hero.svg"
+            src="/logo-mark.jpg"
             alt="ATS-mobile"
-            width={1920}
-            height={800}
-            style={{ width: "100%", height: "auto" }}
+            width={10241}
+            height={4400}
+            className="heroLogo"
             priority
           />
-        </div>
 
-        <div className="homeText">
-          <h1 className="homeTitle">{t("homeTitle")}</h1>
-          <p className="homeSubtitle">{t("homeSubtitle")}</p>
+          {/* Text stays nicely centered */}
+          <div className="heroHexInner">
+            <div className="homeText">
+              <h1 className="homeTitle">{t("homeTitle")}</h1>
+              <p className="homeSubtitle">{t("homeSubtitle")}</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <Counters />
 
-      {/* Partners */}
       <section className="partnersSection" aria-label="Partners">
         <div className="partnersInner">
           <h2 className="partnersTitle">{t("partnersTitle")}</h2>

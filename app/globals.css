@@ -9,6 +9,15 @@
   --bg: #ffffff;
 
   --radius: 12px;
+
+  /* HEX BACKGROUND TUNING (black on transparent pattern) */
+  --hex-opacity: 0.1;
+  --hex-hero-fade-height: 0px;
+  --mark-width: clamp(220px, 100vw, 360px);    /* controls hex scale across devices */
+  --hex-strip-width: var(--mark-width);
+  --hex-x-offset: 23px;
+  --header-h: 72px;
+  
 }
 
 /* -------------------- */
@@ -88,6 +97,135 @@ body::after {
   }
 }
 
+/* -------------------- */
+/* HEX HERO + PAGE BG   */
+/* -------------------- */
+
+/*
+  You will use these classes in app/page.tsx:
+
+  - Top section: <section className="heroHex"> ... </section>
+  - Rest of content: <section className="pageHexBg"> ... </section>
+
+  Assets expected:
+  - /public/hex-strip.png  (black hex outlines on transparent bg)
+  - /public/logo-mark.svg  (logo only, transparent bg)
+*/
+
+.heroHex {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* One shared background layer */
+.hexBgWrap {
+  position: relative;
+}
+
+.hexBgWrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: url("/hex-strip.png");
+  background-repeat: repeat-y;      /* only downwards */
+  background-position: center var(--header-h);  /* snapped top-center */
+  background-size: 100% auto;       /* match wrapper width */
+
+  opacity: var(--hex-opacity);
+}
+
+/* Content above the background */
+.hexBgWrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.heroHexInner {
+  position: relative;
+  z-index: 1;
+  width: min( calc(100% - 32px));
+  margin: 0 auto;
+
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 0px 0 34px;
+}
+
+.heroLogo {
+  display: block;
+  width: 100vw;
+  width: 100dvw;
+  max-width: none !important;   /* kills any inherited limits */
+  height: auto;
+
+  /* Fade out bottom of the image */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.heroLogo :global(img),
+.heroLogo img {
+  width: 100vw !important;
+  width: 100dvw !important;
+  max-width: none !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Rest of page uses the same strip but subtle */
+.pageHexBg {
+  position: relative;
+  padding: 10px 0 0;
+}
+
+.pageHexBg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: url("/hex-strip.png");
+  background-repeat: repeat-y;
+  background-position: top center;
+
+  /* same width as logo mark */
+  background-size: 100% auto;
+
+  opacity: var(--hex-page-opacity);
+}
+
+/* Make sure real content sits above the background */
+.pageHexBg > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Full-bleed wrapper that is truly edge-to-edge AND consistent on desktop */
+.edgeToEdge {
+  width: 100vw;                 /* fallback */
+  width: 100dvw;                /* modern: excludes scrollbar drift */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 /* -------------------- */
 /* HEADER + NAVIGATION  */
 /* -------------------- */
@@ -315,12 +453,12 @@ body::after {
 
 .mobileMenu {
   position: absolute;
-  top: 100%;              /* directly under header */
+  top: 100%;
   left: 0;
   right: 0;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 
-  z-index: 40;            /* below header (50) but above page */
+  z-index: 40;
   border-bottom: 1px solid var(--border-light);
   background: #ffffff;
 
@@ -332,7 +470,6 @@ body::after {
 .mobileMenu.closing {
   animation: menuUp 650ms cubic-bezier(.4,0,.6,1) both;
 }
-
 
 @keyframes menuDown {
   from {
@@ -355,8 +492,6 @@ body::after {
     transform: translateY(-24px) scaleY(0.96);
   }
 }
-
-
 
 .mobileMenuInner {
   width: min(1100px, calc(100% - 32px));
@@ -551,6 +686,15 @@ body::after {
   height: auto;
   display: block;
 }
+
+/* Full-bleed block (edge-to-edge, no scrollbar drift) */
+.bleed {
+  position: relative;
+  width: 100vw;     /* fallback */
+  width: 100dvw;    /* modern */
+  margin-left: calc(50% - 50vw);
+}
+
 
 /* -------------------- */
 /* SERVICES PAGE        */
@@ -836,6 +980,12 @@ body::after {
   .menuBtn {
     display: inline-flex;
   }
+
+  /* Keep pattern scale reasonable on small screens */
+  :root {
+    --hex-bg-width: 1600px;
+    --hex-hero-fade-height: 200px;
+  }
 }
 
 @media (min-width: 721px) {
@@ -843,8 +993,6 @@ body::after {
     display: none;
   }
 }
-
-
 
 /* After hydration, fade the whole page in once */
 body.hydrated .pageTransition {
@@ -894,7 +1042,7 @@ body {
   place-items: center;
   opacity: 1;
   transform: translateY(0);
-  pointer-events: none; /* user can't interact while it's up anyway */
+  pointer-events: none;
 }
 
 .bootOverlayFade {
@@ -906,7 +1054,6 @@ body {
   to   { opacity: 0; }
 }
 
-/* simple spinner that matches your brand */
 .bootSpinner {
   width: 10px;
   height: 10px;
@@ -914,11 +1061,6 @@ body {
   background: var(--blue-main);
   box-shadow: 0 0 0 14px rgba(45, 116, 214, 0.10);
   animation: bootPulse 900ms ease-in-out infinite;
-}
-
-@keyframes bootPulse {
-  0%, 100% { transform: scale(1); opacity: 0.75; }
-  50% { transform: scale(1.7); opacity: 1; }
 }
 
 /* -------------------- */
@@ -941,8 +1083,6 @@ body {
     filter 1000ms cubic-bezier(.16,1,.3,1);
 }
 
-
-
 /* -------------------- */
 /* PARTNERS (HOME)      */
 /* -------------------- */
@@ -954,6 +1094,11 @@ body {
 .partnersInner {
   width: min(1100px, calc(100% - 32px));
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .partnersTitle {
@@ -977,7 +1122,7 @@ body {
 }
 
 .partnerLogoCard {
-  border: 0px solid var(--border-light);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
@@ -1027,7 +1172,6 @@ body {
     max-height: 44px;
   }
 }
-
 
 /* -------------------- */
 /* COUNTERS (HOME)      */

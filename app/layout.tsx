@@ -9,9 +9,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <LanguageProvider>
-          <Header />
-          <main className="container">{children}</main>
-          <Footer />
+          <div className="edgeToEdge hexBgWrap">
+            <Header />
+            <main className="container">{children}</main>
+            <Footer />
+          </div>
         </LanguageProvider>
       </body>
     </html>

@@ -51,7 +51,7 @@ export default function Header() {
             src="/logo.svg"
             alt="ATS-mobile logo"
             width={140}
-            height={70}
+            height={60}
             className="logo"
             priority
           />
