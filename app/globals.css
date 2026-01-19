@@ -114,7 +114,7 @@ body::after {
 
 .heroHex {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 0;
 }
 
@@ -159,8 +159,7 @@ body::after {
 
 .heroLogo {
   display: block;
-  width: 100vw;
-  width: 100dvw;
+  width: 100% !important;
   max-width: none !important;   /* kills any inherited limits */
   height: auto;
 
@@ -182,11 +181,11 @@ body::after {
 
 .heroLogo :global(img),
 .heroLogo img {
-  width: 100vw !important;
-  width: 100dvw !important;
+  width: 100% !important;
   max-width: none !important;
   height: auto !important;
   display: block;
+  object-fit: contain;
 }
 
 /* Rest of page uses the same strip but subtle */
