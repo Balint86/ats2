@@ -14,10 +14,11 @@ export default function Home() {
     { src: "/partners/partner4.svg", alt: "Partner 4" },
     { src: "/partners/partner5.svg", alt: "Partner 5" },
     { src: "/partners/partner6.svg", alt: "Partner 6" },
-    { src: "/partners/partner7.svg", alt: "Partner 7" },
+    { src: "/partners/partner7.png", alt: "Partner 7" },
     { src: "/partners/partner8.svg", alt: "Partner 8" },
     { src: "/partners/partner9.svg", alt: "Partner 9" },
-    { src: "/partners/partner10.svg", alt: "Partner 10" },
+    { src: "/partners/partner10.png", alt: "Partner 10" },
+    { src: "/partners/partner11.jpeg", alt: "Partner 11" },
   ];
 
   return (

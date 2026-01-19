@@ -46,16 +46,16 @@ const dict = {
 
   // Szolgáltatások
   szolgaltatasTitle: { en: "Services", hu: "Szolgáltatások"},
-
-  // Megújuló
-  megujuloTitle: { en: "Renewable", hu: "Megújuló"},
-  megujuloText: { en: "Medium lenght.", hu: "Közepesen hosszú lehet."},
-  megujuloLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
-
+  
   // Távközlés
   tavkozlesTitle: { en: "Telecommunication", hu: "Távközlés"},
-  tavkozlesText: { en: "Medium lenght.", hu: "Közepesen hosszú lehet."},
+  tavkozlesText: { en: "Medium length.", hu: "Közepesen hosszú lehet."},
   tavkozlesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
+
+  // Megújuló energia
+  megujuloTitle: { en: "Renewable energy", hu: "Megújuló energia"},
+  megujuloText: { en: "Medium length.", hu: "Közepesen hosszú lehet."},
+  megujuloLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Lakossági
   lakossagiTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
@@ -78,7 +78,7 @@ const dict = {
   tervezesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Mérnöki szakértői szolgáltatások
-  mernokiTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  mernokiTitle: { en: "Engineering services", hu: "Mérnöki szolgáltatások"},
   mernokiText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   mernokiLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
  
@@ -88,7 +88,7 @@ const dict = {
   radioLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Acélszerkezetek gyártása, építészeti kivitelezés
-  acelszerkezetTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  acelszerkezetTitle: { en: "Steel structures", hu: "Acélszerkezetek"},
   acelszerkezetText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   acelszerkezetLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
@@ -98,7 +98,7 @@ const dict = {
   erosaramuellatasLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
   //Üzemeltetés
-  uzemeltetesTitle: { en: "Projektspecifikus típustervekkkkkk", hu: "Projektspecifikus típustervekkkkkk"},
+  uzemeltetesTitle: { en: "Operations", hu: "Üzemeltetés"},
   uzemeltetesText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   uzemeltetesLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
@@ -232,6 +232,10 @@ const dict = {
   lapostetostartoText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
   lapostetostartoLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
+  //Infrastruktúra projektek
+  infrastrukturaTitle: { en: "Infrastructure projects", hu: "Infrastruktúra projektek"},
+  infrastrukturaText: { en: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről.", hu: "Ide jönnek majd az információk a projekt előkészítés, projektspecifikus típustervekről."},
+  infrastrukturaLong: { en: "Here comes the long description.", hu: "Ide jön a hosszabb leírása."},
 
 
 } as const;

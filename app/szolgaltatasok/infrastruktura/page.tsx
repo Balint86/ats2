@@ -3,20 +3,19 @@
 import { useLanguage } from "@/app/components/LanguageProvider";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 
-export default function UzemeltetesPage() {
-  const { t } = useLanguage();    
-
+export default function InfrastrukturaProjektekPage() {
+  const { t } = useLanguage();
+    
     return (
       <section style={{ padding: "32px 0" }}>
         <Breadcrumbs
         items={[
           { label: t("services"), href: "/szolgaltatasok" },
-          { label: t("tavkozlesTitle"), href: "/szolgaltatasok/tavkozles" },
-          { label: t("uzemeltetesTitle")}
+          { label: t("infrastrukturaTitle")}
         ]}
       />
-        <h1>{t("uzemeltetesTitle")}</h1>
-        <p>{t("uzemeltetesLong")}</p>
+        <h1>{t("infrastrukturaTitle")}</h1>
+        <p>{t("infrastrukturaLong")}</p>
       </section>
     );
   }

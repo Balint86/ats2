@@ -237,11 +237,11 @@ body::after {
 
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.96),
-    rgba(255, 255, 255, 0.92)
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.5)
   );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* Full-width nav (controls absolute positioning) */
@@ -1123,7 +1123,7 @@ body {
 .partnerLogoCard {
   border: 1px solid var(--border-light);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
@@ -1194,7 +1194,7 @@ body {
 .counterCard {
   border: 1px solid var(--border-light);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 1);
   padding: 18px 14px;
   text-align: center;
 

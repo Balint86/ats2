@@ -70,13 +70,6 @@ export default function TavkozlesPage() {
             text={t("erosaramuellatasText")}
           />
 
-          <OverlayCard
-            href="/szolgaltatasok/tavkozles/uzemeltetes"
-            imgSrc="/uzemeltetes.svg"
-            imgAlt="Uzemeletetes"
-            title={t("uzemeltetesTitle")}
-            text={t("uzemeltetesText")}
-          />
       </div>
     </section>
   );

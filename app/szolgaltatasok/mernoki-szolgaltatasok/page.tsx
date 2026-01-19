@@ -12,7 +12,6 @@ export default function MernokiSzolgaltatasokPage() {
         <Breadcrumbs
         items={[
           { label: t("services"), href: "/szolgaltatasok" },
-          { label: t("tavkozlesTitle"), href: "/szolgaltatasok/tavkozles" },
           { label: t("mernokiTitle")}
         ]}
       />
